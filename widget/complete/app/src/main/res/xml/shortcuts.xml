@@ -15,7 +15,8 @@
   ~ limitations under the License.
   ~
   -->
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- shortcuts that are bound to the START_EXERCISE capability, and represents the different
       types of exercises-->
@@ -167,6 +168,37 @@
         <!-- Fallback intent with no parameters required to successfully execute.-->
         <intent
             android:identifier="GET_EXERCISE_OBSERVATION_FALLBACK"
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.devrel.android.fitactions.widgets.StatsWidgetProvider">
+        </intent>
+    </capability>
+
+    <!--    GET_DATA capability/shortcut to test custom intent with widgets to get some data back in assistant-->
+    <shortcut
+        android:shortcutId="GET_DATA"
+        android:shortcutShortLabel="@string/activity_cycling">
+        <capability-binding android:key="actions.intent.GET_EXERCISE_OBSERVATION">
+            <parameter-binding
+                android:key="exerciseObservation.aboutExercise.name"
+                android:value="@array/getDataSynonyms"/>
+        </capability-binding>
+    </shortcut>
+
+    <capability android:name="custom.actions.intent.GET_EXERCISE_OBSERVATION"
+        app:queryPatterns="@array/getDataQueries">
+        <app-widget
+            android:identifier="GET_EXERCISE_OBSERVATION"
+            android:targetClass="com.devrel.android.fitactions.widgets.StatsWidgetProvider"
+            android:targetPackage="PUT_YOUR_APPLICATION_ID_HERE">
+            <parameter
+                android:name="getData"
+                android:key="aboutGetData"
+                android:required="true">
+            </parameter>
+            <extra android:name="hasTts" android:value="true"/>
+        </app-widget>
+        <intent
+            android:identifier="GET_DATA_FALLBACK"
             android:action="android.intent.action.VIEW"
             android:targetClass="com.devrel.android.fitactions.widgets.StatsWidgetProvider">
         </intent>

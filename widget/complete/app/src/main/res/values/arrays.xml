@@ -39,4 +39,18 @@
         <item>Cycle</item>
     </array>
 
+    <array name="getDataQueries">
+        <item>get data from last activity</item>
+        <item>get information from last activity</item>
+        <item>tell info from last activity</item>
+        <item>tell information from last activity</item>
+    </array>
+
+    <array name="getDataSynonyms">
+        <item>info</item>
+        <item>data</item>
+        <item>value</item>
+        <item>information</item>
+    </array>
+
 </resources>

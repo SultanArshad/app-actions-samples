@@ -57,6 +57,11 @@ class StatsWidget(
             if (isFallbackIntent) {
                 aboutExerciseName = context.resources.getString(R.string.activity_unknown)
             } else {
+                /* simply logging to check if the custom intent has invoked
+                 and param inside the widget fullfilmenthas passed to app */
+                val aboutGetData: String = params.get("aboutGetData") as String
+                Log.d(TAG, "====App invoke custom intnent prams is $====")
+
                 aboutExerciseName = params.get("aboutExerciseName") as String
             }
         } else {
@@ -170,7 +175,7 @@ class StatsWidget(
             // formats speech and display text for Assistant
             // https://developers.google.com/assistant/app/widgets#library
             val speechText =
-                context.getString(R.string.widget_no_activity_speech, aboutExerciseName)
+                context.getString(R.string.widget_no_activity_speech, aboutGetData)
             val displayText =
                 context.getString(R.string.widget_no_activity_text)
 
